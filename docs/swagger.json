@@ -1,0 +1,83 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Api-arduino",
+    "description": "API que faz o registro de usuário pela tabela verdade",
+    "version": "1.0.0",
+    "default": ""
+  },
+  "paths": {
+    "/user": {
+      "post": {
+        "summary": "Criar um novo usuário",
+        "description": "Cria um novo usuário com os dados fornecidos",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "userName": {
+                    "type": "string",
+                    "description": "Nome do usuário"
+                  },
+                  "userSurname": {
+                    "type": "string",
+                    "description": "sobrenome do usuário"
+                  },
+                  "userEmail": {
+                    "type": "string",
+                    "description": "E-mail do usuário"
+                  },
+                  "userDocumentNumber": {
+                    "type": "string",
+                    "description": "CPF do cliente"
+                  }
+                },
+                "required": ["name", "email"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "userCreatedOrError": {
+                      "type": "object",
+                      "properties": {
+                        "userCreated": {
+                          "type": "object",
+                          "properties": {
+                            "insertedInfo": {
+                              "type": "object",
+                              "properties": {
+                                "acknowledged": {
+                                  "type": "boolean"
+                                },
+                                "insertedId": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "statusCode": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
