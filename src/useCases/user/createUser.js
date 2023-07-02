@@ -12,7 +12,7 @@ const createUser = ({ userDb }) => async (userInfo) => {
   }
 
   const user = userOrError
-  const result = await userDb.find({ email: user.getUserEmail() })
+  const result = await userDb.findOne({ email: user.getUserEmail() })
 
   if (!(result)) {
     const userCreated = await userDb.insert({

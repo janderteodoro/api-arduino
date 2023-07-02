@@ -12,11 +12,11 @@ const makeUserDb = ({ makeDb }) => {
       const { ...insertedInfo } = result
       return { insertedInfo }
     } catch (error) {
-      return new DatabaseError('Error in Adapter layer: Database Error', 'DB_ERROR')
+      return new DatabaseError('Error in Adapter layer: Database Error', 'DB_ERROR', error)
     }
   }
 
-  async function find ({ email }) {
+  async function findOne({ email }) {
     try {
       const db = await makeDb()
 
@@ -26,12 +26,27 @@ const makeUserDb = ({ makeDb }) => {
 
       return result
     } catch (error) {
-      return new DatabaseError('Error in Adapter layer: Database Error', 'DB_ERROR')
+      return new DatabaseError('Error in Adapter layer: Database Error', 'DB_ERROR', error)
+    }
+  }
+
+  async function find () {
+    try {
+      const db = await makeDb()
+      
+      const results = await db
+        .collection('users')
+        .find().toArray()
+     
+      return results
+    } catch (error) {
+      return new DatabaseError('Error in Adapter layer: DataBaseError', 'DB_ERROR', error)
     }
   }
 
   return Object.freeze({
     insert,
+    findOne,
     find
   })
 }

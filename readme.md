@@ -9,7 +9,7 @@ Esse projeto consiste em uma simples api REST para registro de usuário, mas  el
 
 Consite em uma API que basicamente vai fazer o registro de usuários, tendo  4 rotas:
 - **POST /user** - Rota responsável por criar usuário e salvar no banco de dados (finalizada)
-- **GET /user** - Rota responsável por listar todos os usuários (Work in Progress)
+- **GET /user** - Rota responsável por listar todos os usuários (finalizada)
 - **DELETE /user** - Rota responsável por deletar um usuário (Work in Progress)
 - **PUT /user** = Rota responsável por alterar dados de um usuário (Work in Progress)
 
