@@ -42,12 +42,12 @@ Para rodar o serviço localmente siga os passos a seguir:<br>
 <img src="docs/debugger.png" width="200" height="165"><br>
 6. Crie um launch.json do tipo **node.js**
 7. Selecione **"Launch Program"** e inicie o processo de debug adicionando brake points<br>
-<img src="docs/launch.png" width="200" hwight="165"> 
+<img src="docs/launch.png" width="200" hwight="165"> <br>
 
 Caso não consiga entender o processo de debug ou queira se aprofundar no assunto, recomendo que leia a [documentação oficial](https://code.visualstudio.com/docs/editor/debugging) da ferramenta.
 
 ## Próximos passos
-* Concluir as rotas relacionadas ao usuário (GET, DELETE e PUT)
+* Concluir as rotas relacionadas ao usuário (DELETE e PUT)
 * Realizar esquema elétrico do arduino
 
 # Referência
