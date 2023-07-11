@@ -1,21 +1,16 @@
-const mongodb = require('mongodb')
+const mysql = require('mysql2')
 require('dotenv').config()
 
-const { MongoClient, ServerApiVersion } = mongodb
-const url = process.env.USER_DB_URL
-const dbName = process.env.USER_DB_NAME
+const host = process.env.MY_SQL_HOST
+const user = process.env.MY_SQL_USER
+const password = process.env.MY_SQL_PASS
+const database = process.env.MY_SQL_DATABASE
 
-const client = new MongoClient(url, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true
-  }
+const connection = mysql.createConnection({
+  host,
+  user,
+  password,
+  database
 })
 
-const makeDb = async () => {
-  await client.connect()
-  console.log('Connected to database')
-  return client.db(dbName)
-}
-module.exports = makeDb
+module.exports = connection
